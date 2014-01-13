@@ -1,5 +1,5 @@
 //  Tokenizator by Roberto Arosemena
-//  v 1.0.0
+//  v 1.0.1
 
 document.oncontextmenu = function() { return false; }
 
