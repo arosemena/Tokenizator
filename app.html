@@ -17,8 +17,6 @@
     <script type="text/javascript" src="js/jsqrcode/alignpat.js"></script>
     <script type="text/javascript" src="js/jsqrcode/databr.js"></script>
     <script src="js/angular.min.js"></script><script src="js/app.js"></script>
-    <script src="js/directives.js"></script>
-
 
 </head><body><div class="container"><div class="backgroundLine"></div><div class="menu"><span>{{page.message}}</span><div class="addButton"><img src="img/add.png" ng-click="changeActive('add')"></div><div class="passwordButton"><img src="img/password.png" ng-click="changeActive('password')"></div></div><div ng-show="page.active == 'password'" class="passwordView"><div style="right: {{timer}}%" class="timer"></div><div ng-repeat="key in appData.keys track by $index" ng-click="copy($index)" class="token"><div ng-class="{groupedKey:key.name}" class="key">{{key.key}}</div><img src="img/close.png" ng-click="killKey($index)"><div ng-show="key.name" class="name">{{key.name}}</div></div></div>
     <div ng-show="page.active == 'add'" class="addView" imagedrop on-image-drop="imageDropped()"><input ng-model="entry.name" placeholder="Account Name">
