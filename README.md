@@ -12,6 +12,7 @@ Tokenizator
 >- Desktop integration as a chrome app
 >- No special permissions needed other than writing to the clipboard
 >- Fast generation and an easy way to copy the code to the clipboard
+>- QR code support (by mendhak)
 >
 >To copy a code to your clipboard click the frame that contains it.
 >
@@ -26,7 +27,7 @@ MIT
 
 Version
 --
-1.0.1
+1.1.0
 
 by Roberto Arosemena
 --
