@@ -7,29 +7,24 @@ var app = angular.module('app', ['ui.imagedrop']);
 
 app.controller('main', function($scope){
 
-    var urlParams;
-    function getParams (uri) {
-        var match,
-            pl     = /\+/g,  // Regex for replacing addition symbol with a space
-            search = /([^&=]+)=?([^&]*)/g,
-            decode = function (s) { return decodeURIComponent(s.replace(pl, " ")); },
-            //query  = window.location.search.substring(1);
-            query = uri;
-
-        urlParams = {};
-        while (match = search.exec(query))
-            urlParams[decode(match[1])] = decode(match[2]);
-
-        return urlParams;
-    };
 
     $scope.imageDropped = function(){
-        //Get the file
-        var qrCode = $scope.qrCode;
-        console.log(qrCode);
-//        console.log(getParams(qrCode.substring(qrCode.indexOf('?')+1)));
+        var qrCode = decodeURIComponent($scope.qrCode);
         $scope.entry.secret = getParams(qrCode.substring(qrCode.indexOf('?')+1))["secret"];
+        $scope.entry.name = qrCode.substring(qrCode.indexOf('otp/')+4, qrCode.indexOf('?'));
 
+        function getParams (uri) {
+            var match,
+                pl     = /\+/g,  // Regex for replacing addition symbol with a space
+                search = /([^&=]+)=?([^&]*)/g,
+                decode = function (s) { return decodeURIComponent(s.replace(pl, " ")); };
+
+            var urlParams = {};
+            while (match = search.exec(uri))
+                urlParams[decode(match[1])] = decode(match[2]);
+
+            return urlParams;
+        }
     };
 
   $scope.updateTokens = function() {
