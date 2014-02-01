@@ -7,7 +7,6 @@ var app = angular.module('app', []);
 
 app.controller('main', function($scope){
 
-
     $scope.imageDropped = function(){
         var qrCode = decodeURIComponent($scope.qrCode);
         $scope.entry.secret = getParams(qrCode.substring(qrCode.indexOf('?')+1))["secret"];
