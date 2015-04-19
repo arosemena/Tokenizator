@@ -1,5 +1,5 @@
 //  Tokenizator by Roberto Arosemena
-//  v 1.1.0
+//  v 1.2.0
 
 document.oncontextmenu = function() { return false; }
 
@@ -36,6 +36,7 @@ app.controller('main', function($scope){
 
   $scope.saveToken = function(){
     if(typeof $scope.entry.secret !== 'undefined' && $scope.entry.secret.length > 0) {
+      $scope.entry.secret = $scope.entry.secret.replace(' ', '');
       $scope.entry.key = auth($scope.entry.secret, epoch());
       $scope.appData.keys.push($scope.entry);
       $scope.page.active = 'password';
@@ -48,7 +49,9 @@ app.controller('main', function($scope){
     var translate = { "49" : 0, "50" : 1, "51" : 2, "52" : 3, "53" : 4, "54" : 5,
                       "55" : 6, "56" : 7, "57" : 8, "58" : 9, "48" : 10, "189" : 11,
                       "187" : 12, "8" : 13 }
-    $scope.copy(translate[e.which]);
+    if($scope.page.active == 'password') {
+      $scope.copy(translate[e.which]);  
+    }
   }
 
   $scope.changeActive = function(a) {

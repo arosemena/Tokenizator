@@ -21,13 +21,28 @@ Tokenizator
 >
 >Warning note: this application should not be used to generate sensitive codes because keeping them in your computer may cause a security issue, i recommend using this application only to test a service or to develop solutions that involve the Google Authenticator.
 
+Changelog
+--
+##1.2.0
+* Added Roboto TTF font to replace the broken svg font that was used before
+* Spaces on the secret are removed before the key is saved
+* Shortcuts to copy keys are now disabled while creating a new key
+* Prettified the CSS file
+
+##1.1.0
+* Added QR code support
+
+
+##1.0.0
+* Launched on store
+
 License
 --
 MIT
 
 Version
 --
-1.1.0
+1.2.0
 
 by Roberto Arosemena
 --
